@@ -9,9 +9,9 @@ const PodcastCover = ({ number, guest, title, image, innerRef, ...props }) => (
   <div className="podcast-cover" ref={innerRef} {...props}>
     <div className="podcast-cover__content">
       <h1 className="podcast-cover__heading">
-        Nerf This #
+        Nerf This
         <span className="podcast-cover__number-wrapper">
-          <span className="podcast-cover__number">{number}</span>
+          <span className="podcast-cover__number">#{number}</span>
           <Icon className="podcast-cover__icon" width="127" height="109" />
         </span>
       </h1>

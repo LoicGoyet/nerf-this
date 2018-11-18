@@ -57,17 +57,24 @@
 
 .podcast-cover__number-wrapper {
   position: relative;
+  width: 100px;
+  margin-left: 30px;
+  display: inline-block;
+  text-align: center;
 }
 
 .podcast-cover__number {
   position: relative;
   z-index: 1;
+  display: inline-block;
+  margin-left: -38px;
 }
 
 .podcast-cover__icon {
   position: absolute;
+  top: 0;
   top: 50%;
-  left: 50%;
+  left: 50px;
   transform: translate(-50%, -50%);
   margin-top: -20px;
   margin-left: -3px;
