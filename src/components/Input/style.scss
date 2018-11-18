@@ -1,0 +1,11 @@
+.input {
+  font-size: 1em;
+  padding: 0.6em 0;
+  border: 0;
+  border-bottom: 2px solid;
+
+  &:focus {
+      outline: 0;
+      border-color: red;
+  }
+}

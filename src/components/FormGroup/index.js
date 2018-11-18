@@ -1,19 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Input from '../Input';
+
 import './index.scss';
+import Label from '../Label';
 
-const FormGroup = ({ label, ...props }) => (
-  <label className="form-group">
-    {!!label && <span className="form-group__label">{label}</span>}
+/* eslint-disable jsx-a11y/label-has-for */
+const FormGroup = ({ label, value, placeholder, type, onChange, id }) => (
+  <label className="form-group" htmlFor={id}>
+    {!!label && <Label>{label}</Label>}
 
-    <input
-      className="form-group__input"
-      value={props.value}
-      placeholder={props.placeholder}
-      type={props.type}
-      onChange={props.onChange}
-    />
+    <Input value={value} placeholder={placeholder} type={type} onChange={onChange} id={id} />
   </label>
 );
 
@@ -23,14 +21,17 @@ FormGroup.propTypes = {
   label: PropTypes.string,
   type: PropTypes.oneOf(['text', 'number', 'file']),
   onChange: PropTypes.func,
+  id: PropTypes.string.isRequired,
+  children: PropTypes.any,
 };
 
-FormGroup.defaultValues = {
+FormGroup.defaultProps = {
   value: '',
-  placeholder: void 0,
-  label: void 0,
+  placeholder: undefined,
+  label: undefined,
   type: 'text',
-  onChange: () => void 0,
+  onChange: () => undefined,
+  children: undefined,
 };
 
 export default FormGroup;
