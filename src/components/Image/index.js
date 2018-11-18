@@ -66,7 +66,7 @@ Image.propTypes = {
 };
 
 Image.defaultProps = {
-  src: void 0,
+  src: undefined,
 };
 
 export default Image;
