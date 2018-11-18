@@ -27,7 +27,7 @@ const PodcastCover = ({ number, guest, title, image, innerRef, ...props }) => (
 
     <Image
       src={image}
-      wrapperSize={{
+      size={{
         width: 500,
         height: 500,
       }}

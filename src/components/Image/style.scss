@@ -1,27 +1,34 @@
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
 .image {
-    display: block;
-    pointer-events: all;
-    cursor: move;
+  display: block;
+  pointer-events: all;
+  cursor: move;
 }
 
 .image--landscape {
-    height: 100%;
+  height: 100%;
+  cursor: ew-resize;
 }
 
 .image--portrait {
-    width: 100%;
+  width: 100%;
+  cursor: ns-resize;
 }
 
 .image__source {
-    pointer-events: none;
-    z-index: 0;
-    user-select: none;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
 }
 
 .image--landscape .image__source {
-    height: 100%;
+  height: 100%;
 }
 
 .image--portrait .image__source {
-    width: 100%;
+  width: 100%;
 }

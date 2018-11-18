@@ -4,8 +4,8 @@ import Draggable from 'react-draggable';
 
 import './style.scss';
 
-const Image = ({ src, wrapperSize, ...props }) => {
-  const [size, setSize] = useState({
+const Image = ({ src, size, ...props }) => {
+  const [srcSize, setSrcSize] = useState({
     width: 0,
     height: 0,
   });
@@ -20,7 +20,7 @@ const Image = ({ src, wrapperSize, ...props }) => {
       imageDom.onload = () => {
         const { naturalWidth, naturalHeight } = imageDom;
 
-        setSize({
+        setSrcSize({
           width: naturalWidth,
           height: naturalHeight,
         });
@@ -29,7 +29,7 @@ const Image = ({ src, wrapperSize, ...props }) => {
     [src]
   );
 
-  const { width, height } = size;
+  const { width, height } = srcSize;
 
   if (!src || width === 0 || height === 0) return null;
 
@@ -37,38 +37,40 @@ const Image = ({ src, wrapperSize, ...props }) => {
   const orientation = ratio > 1 ? 'portrait' : 'landscape';
 
   // used if the orientation is 'landscape'
-  const innerWidth = (width * wrapperSize.height) / height;
+  const innerWidth = (width * size.height) / height;
 
   // used if the orientation is 'portrait'
-  const innerHeight = (height * wrapperSize.width) / width;
+  const innerHeight = (height * size.width) / width;
 
   return (
-    <Draggable
-      axis={ratio > 1 ? 'y' : 'x'}
-      bounds={{
-        left: wrapperSize.width - innerWidth,
-        right: 0,
-        top: wrapperSize.height - innerHeight,
-        bottom: 0,
-      }}
-      {...props}
-    >
-      <span
-        className={`image image--${orientation}`}
-        style={{
-          width: orientation === 'landscape' ? innerWidth : 'inherit',
-          height: orientation === 'portrait' ? innerHeight : 'inherit',
+    <div className="image-wrapper" style={{ ...size }}>
+      <Draggable
+        axis={ratio > 1 ? 'y' : 'x'}
+        bounds={{
+          left: size.width - innerWidth,
+          right: 0,
+          top: size.height - innerHeight,
+          bottom: 0,
         }}
+        {...props}
       >
-        <img src={src} className="image__source" alt="cover illustration" />
-      </span>
-    </Draggable>
+        <span
+          className={`image image--${orientation}`}
+          style={{
+            width: orientation === 'landscape' ? innerWidth : 'inherit',
+            height: orientation === 'portrait' ? innerHeight : 'inherit',
+          }}
+        >
+          <img src={src} className="image__source" alt="cover illustration" />
+        </span>
+      </Draggable>
+    </div>
   );
 };
 
 Image.propTypes = {
   src: PropTypes.string,
-  wrapperSize: PropTypes.shape({
+  size: PropTypes.shape({
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
   }).isRequired,
