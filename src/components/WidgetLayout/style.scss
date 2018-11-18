@@ -1,0 +1,13 @@
+.widget-layout {
+  display: flex;
+  align-items: center;
+}
+
+.widget-layout__preview {
+  pointer-events: none;
+  user-select: none;
+}
+
+.widget-layout__form {
+  margin-left: 1rem;
+}

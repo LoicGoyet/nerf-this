@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Cover from './component/Cover/index';
+import PodcastCoverWidget from './widgets/PodcastCoverWidget';
 
 const App = () => (
   <React.Fragment>
-    <Cover key="test" />
+    <PodcastCoverWidget />
   </React.Fragment>
 );
 
