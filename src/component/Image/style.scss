@@ -1,0 +1,27 @@
+.image {
+    display: block;
+    pointer-events: all;
+    cursor: move;
+}
+
+.image--landscape {
+    height: 100%;
+}
+
+.image--portrait {
+    width: 100%;
+}
+
+.image__source {
+    pointer-events: none;
+    z-index: 0;
+    user-select: none;
+}
+
+.image--landscape .image__source {
+    height: 100%;
+}
+
+.image--portrait .image__source {
+    width: 100%;
+}
