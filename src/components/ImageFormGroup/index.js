@@ -38,7 +38,13 @@ const ImageFormGroup = ({ onChange, id }) => {
           Choisir une image
         </Button>
 
-        <input className="image-input__file-input" type="file" onChange={onFileInputChange} ref={fileInput} />
+        <input
+          tabIndex="-1"
+          className="image-input__file-input"
+          type="file"
+          onChange={onFileInputChange}
+          ref={fileInput}
+        />
         <Input
           className="image-form__paste-input"
           onPaste={onTextInputPaste}

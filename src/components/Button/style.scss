@@ -1,15 +1,24 @@
+@import '../../style/colors';
+
 .button {
   font-size: 1em;
   padding: 0.6em;
   border: 0;
+  color: $purple;
   border: 2px solid;
   cursor: pointer;
+  background-color: $white;
 
   &:hover,
   &:focus,
   &:active {
-    background-color: black;
-    border-color: black;
-    color: white;
+    background-color: $purple;
+    border-color: $purple;
+    color: $white;
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px $white, 0 0 0 5px $pink;
   }
 };

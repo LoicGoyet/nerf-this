@@ -1,5 +1,7 @@
+@import '../../style/colors';
+
 .podcast-cover {
-  background-color: rgb(20, 10, 67);
+  background-color: $purple;
   background-size: cover;
   background-position: center;
   height: 500px;
@@ -7,7 +9,7 @@
   font-size: 20px;
   position: relative;
   overflow: hidden;
-  color: white;
+  color: $white;
   pointer-events: none;
   user-select: none;
 }
@@ -20,7 +22,7 @@
   left: 0;
   width: 100%;
   height: 104.166666667%;
-  background-image: linear-gradient(-253deg, #FF0053 0%, rgba(20,52,146,0.00) 41%);
+  background-image: linear-gradient(-253deg, $pink 0%, transparentize($purple, 1) 41%);
   transform: scaleX(-1);
   filter: FlipH;
   opacity: 0.7;
@@ -34,7 +36,7 @@
   height: 109.537037037%;
   left: 0;
   bottom: 0;
-  background-image: linear-gradient(0deg, #140A43 24%, rgba(20,52,146,0.00) 100%);
+  background-image: linear-gradient(0deg, $purple 24%, transparentize($purple, 1) 100%);
 }
 
 .podcast-cover__content {
@@ -96,6 +98,6 @@
 .podcast-cover__guest-name {
   font-family: 'Peace Sans';
   text-transform: uppercase;
-  color: rgb(236, 9, 114);
+  color: $pink-dark;
   font-weight: 400;
 }
