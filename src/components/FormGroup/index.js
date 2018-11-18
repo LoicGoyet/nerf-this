@@ -7,11 +7,12 @@ import './index.scss';
 import Label from '../Label';
 
 /* eslint-disable jsx-a11y/label-has-for */
-const FormGroup = ({ label, value, placeholder, type, onChange, id }) => (
+const FormGroup = ({ label, value, placeholder, type, onChange, id, children }) => (
   <label className="form-group" htmlFor={id}>
     {!!label && <Label>{label}</Label>}
 
-    <Input value={value} placeholder={placeholder} type={type} onChange={onChange} id={id} />
+    {!children && <Input value={value} placeholder={placeholder} type={type} onChange={onChange} id={id} />}
+    {children}
   </label>
 );
 

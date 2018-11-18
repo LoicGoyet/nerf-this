@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@storybook/cli": "^4.0.7",
+    "classnames": "^2.2.6",
     "dom-to-image": "^2.6.0",
     "node-sass": "^4.10.0",
     "prop-types": "^15.6.2",

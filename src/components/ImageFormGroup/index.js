@@ -2,10 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { isStringAImageURL } from '../../utils/image';
+import Input from '../Input';
+import FormGroup from '../FormGroup';
+import Button from '../Button';
 
 import './style.scss';
 
-const ImageFormGroup = ({ onChange }) => {
+const ImageFormGroup = ({ onChange, id }) => {
   const [image, setImage] = useState('');
   const fileInput = useRef();
 
@@ -29,18 +32,29 @@ const ImageFormGroup = ({ onChange }) => {
   const onButtonClick = () => fileInput.current.click();
 
   return (
-    <div>
-      <button type="button" onClick={onButtonClick}>
-        Upload
-      </button>
-      <input className="image-input__file-input" type="file" onChange={onFileInputChange} ref={fileInput} />
-      <input onPaste={onTextInputPaste} onChange={() => null} value={image} type="text" />
-    </div>
+    <FormGroup label="image" id={id}>
+      <div className="image-form__row">
+        <Button className="image-input__button" onClick={onButtonClick}>
+          Choisir une image
+        </Button>
+
+        <input className="image-input__file-input" type="file" onChange={onFileInputChange} ref={fileInput} />
+        <Input
+          className="image-form__paste-input"
+          onPaste={onTextInputPaste}
+          onChange={() => null}
+          value={image}
+          type="text"
+          placeholder="Copier une url d'image ici"
+        />
+      </div>
+    </FormGroup>
   );
 };
 
 ImageFormGroup.propTypes = {
   onChange: PropTypes.func,
+  id: PropTypes.string.isRequired,
 };
 
 ImageFormGroup.defaultProps = {

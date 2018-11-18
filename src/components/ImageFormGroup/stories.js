@@ -6,4 +6,4 @@ import ImageFormGroup from '.';
 
 const stories = storiesOf('ImageFormGroup', module);
 
-stories.add('Default', () => <ImageFormGroup onChange={action('onChange')} />);
+stories.add('Default', () => <ImageFormGroup id="example-1" onChange={action('onChange')} />);
