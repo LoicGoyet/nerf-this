@@ -8,6 +8,8 @@
   position: relative;
   overflow: hidden;
   color: white;
+  pointer-events: none;
+  user-select: none;
 }
 
 .podcast-cover::before {
