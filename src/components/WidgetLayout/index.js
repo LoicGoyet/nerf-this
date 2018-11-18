@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './style.scss';
+import Button from '../Button';
 
 // Wrapper
 const WidgetLayout = ({ children }) => <div className="widget-layout">{children}</div>;
@@ -25,7 +26,9 @@ export const WidgetLayoutForm = ({ onSubmit, children }) => (
     {children}
 
     <div>
-      <button type="submit">Generate Image</button>
+      <Button type="submit" theme="primary">
+        Generate Image
+      </Button>
     </div>
   </form>
 );
