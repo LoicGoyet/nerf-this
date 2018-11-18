@@ -91,7 +91,16 @@
         "aspects": ["invalidHref"]
       }
     ],
-    "indent": ["error", 2, { "SwitchCase": 1 }]
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          ".storybook/**",
+          "src/**/stories.js"
+        ]
+      }
+    ]
   },
   "plugins": ["html", "prettier"]
 }
