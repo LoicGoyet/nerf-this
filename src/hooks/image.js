@@ -1,29 +1,28 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import domtoimage from 'dom-to-image';
 
 export const useImage = () => {
-    const [src, setSrc] = useState();
+  const [src, setSrc] = useState();
 
-    const onImageInputChange = e => {
-        const url = URL.createObjectURL(e.target.files[0])
-        setSrc(url);
-    }
+  const onImageInputChange = e => {
+    const url = URL.createObjectURL(e.target.files[0]);
+    setSrc(url);
+  };
 
-    return [src, onImageInputChange];
-}
+  return [src, onImageInputChange];
+};
 
 export const useImageGeneration = (ref, title, options = {}) => {
-    const generateImage = e => {
-        e.preventDefault();
+  const generateImage = e => {
+    e.preventDefault();
 
-        domtoimage.toJpeg(ref.current, options)
-            .then(function (dataUrl) {
-                var link = document.createElement('a');
-                link.download = `${title}.jpeg`;
-                link.href = dataUrl;
-                link.click();
-            });
-    }
+    domtoimage.toJpeg(ref.current, options).then(dataUrl => {
+      const link = document.createElement('a');
+      link.download = `${title}.jpeg`;
+      link.href = dataUrl;
+      link.click();
+    });
+  };
 
-    return [generateImage];
-}
+  return [generateImage];
+};

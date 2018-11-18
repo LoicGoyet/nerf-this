@@ -4,7 +4,7 @@ import Cover from './component/Cover/index';
 
 const App = () => (
   <React.Fragment>
-    <Cover key="test"/>
+    <Cover key="test" />
   </React.Fragment>
 );
 
