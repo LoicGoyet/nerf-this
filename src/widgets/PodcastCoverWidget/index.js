@@ -10,7 +10,7 @@ const PodcastCoverWidget = () => {
   const [title, setTitle] = useState('');
   const [number, setNumber] = useState('0');
   const [guest, setGuest] = useState('');
-  const [imageSrc, onImageInputChange] = useImage();
+  const [imageSrc, onImageInputChange, onImageStringChange] = useImage();
   const coverRef = useRef();
   const [generateImage] = useImageGeneration(coverRef, `nerf-this-episode-${number}`, { width: 500, height: 500 });
 
@@ -24,7 +24,8 @@ const PodcastCoverWidget = () => {
         <FormGroup value={title} label="Titre" onChange={e => setTitle(e.target.value)} />
         <FormGroup value={number} label="Numéro d'épisode" type="number" onChange={e => setNumber(e.target.value)} />
         <FormGroup value={guest} label="Invité" onChange={e => setGuest(e.target.value)} />
-        <FormGroup label="Image de couverture" type="file" onChange={onImageInputChange} />
+        <FormGroup label="Image uploader" type="file" onChange={onImageInputChange} />
+        <FormGroup value={imageSrc} label="Image url" onChange={onImageStringChange} />
       </WidgetLayoutForm>
     </WidgetLayout>
   );

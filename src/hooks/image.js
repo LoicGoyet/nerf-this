@@ -9,7 +9,9 @@ export const useImage = () => {
     setSrc(url);
   };
 
-  return [src, onImageInputChange];
+  const onImageStringChange = e => setSrc(e.target.value);
+
+  return [src, onImageInputChange, onImageStringChange];
 };
 
 export const useImageGeneration = (ref, title, options = {}) => {
