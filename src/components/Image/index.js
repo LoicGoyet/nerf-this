@@ -43,7 +43,16 @@ const Image = ({ src, wrapperSize, ...props }) => {
   const innerHeight = (height * wrapperSize.width) / width;
 
   return (
-    <Draggable axis={ratio > 1 ? 'y' : 'x'} {...props}>
+    <Draggable
+      axis={ratio > 1 ? 'y' : 'x'}
+      bounds={{
+        left: wrapperSize.width - innerWidth,
+        right: 0,
+        top: wrapperSize.height - innerHeight,
+        bottom: 0,
+      }}
+      {...props}
+    >
       <span
         className={`image image--${orientation}`}
         style={{
