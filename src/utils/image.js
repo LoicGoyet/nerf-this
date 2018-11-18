@@ -1,4 +1,4 @@
-export const testImage = (url, timeoutT) =>
+export const isStringAImageURL = (url, timeoutT) =>
   new Promise((resolve, reject) => {
     const timeout = timeoutT || 5000;
     let timer;
@@ -6,19 +6,19 @@ export const testImage = (url, timeoutT) =>
 
     img.onerror = img.onabort = function() {
       clearTimeout(timer);
-      reject('error');
+      resolve(false);
     };
 
     img.onload = function() {
       clearTimeout(timer);
-      resolve('success');
+      resolve(true);
     };
 
     timer = setTimeout(() => {
       // reset .src to invalid URL so it stops previous
       // loading, but doens't trigger new load
       img.src = '//!!!!/noexist.jpg';
-      reject('timeout');
+      resolve(false);
     }, timeout);
 
     img.src = url;
